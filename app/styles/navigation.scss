@@ -1,0 +1,23 @@
+ul.app-navigation {
+  width: 60rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin: 0 0.5rem 0 0;
+    padding: 1rem;
+    background-color: #e1e1e1;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+
+    &:hover {
+      background-color: #CCC;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}

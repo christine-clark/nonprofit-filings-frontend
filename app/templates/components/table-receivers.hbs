@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between align-items-center">
+  <select
+    name="state"
+    class={{if this.args.selectedState "has-filters-applied" "no-filters-applied"}}
+    {{on "change" (fn this.args.selectState)}}
+  >
+    {{#each this.args.usStates as |state|}}        
+      <option value={{state.abbreviation}}>{{state.name}}</option>      
+    {{/each}} 
+  </select>
+
+  <p>Total Count: {{this.args.meta.totalCount}}</p>
+</div>
+
+{{#if this.args.receivers.length}}
+  <table class="standard-table">
+    <thead>
+      <tr>
+        <th>EIN</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Awards Count</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.args.receivers as |receiver|}}
+        <tr>
+          <td data-test-id="filter-ein">{{receiver.attributes.ein}}</td>
+          <td data-test-id="filter-name">{{receiver.attributes.name}}</td>
+          <td data-test-id="filter-address">{{receiver.attributes.address}}</td>
+          <td data-test-id="filter-city">{{receiver.attributes.city}}</td>
+          <td data-test-id="filter-state">{{receiver.attributes.state}}</td>
+          <td data-test-id="filter-postal-code">{{receiver.attributes.postal_code}}</td>
+          <td data-test-id="filter-awards-count">{{receiver.included.length}}</td>
+          <td data-test-id="filter-actions">
+            <BsButton
+              @onClick={{action this.args.selectReceiver receiver}}
+              data-test-id="view-receiver"
+            >
+              View
+            </BsButton>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  No receivers available.
+{{/if}}
+
+{{#if this.args.selectedReceiver}}
+  <TableReceiverPanel
+    @receiver={{this.args.selectedReceiver}}
+    @closePanel={{this.args.closePanel}}
+  />
+{{/if}}

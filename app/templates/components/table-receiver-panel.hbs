@@ -1,0 +1,68 @@
+<div class="quick-edit-panel h-100" data-test-id="quick-edit-panel">
+  <div class="row m-0 h-100">
+    <div class="col-6 p-0 overlay"></div>
+    <div class="col-6 p-0 d-flex flex-column h-100">
+      <div class="header py-2 pl-3 pr-2 d-flex align-items-center">
+        <h4 class="flex-grow-1 m-0">Receiver Details</h4>
+        <span>
+          <BsButton
+            @type="link"
+            @onClick={{action this.args.closePanel}}
+            class="no-outline p-2"
+            data-test-id="close-panel-button"
+          >
+            X
+          </BsButton>
+        </span>
+      </div>
+
+      <div class="content h-100">
+        <div class="content-wrapper h-100">
+          <BsTab class="mt-3" as |tab|>
+            <tab.pane @title="Info">
+              <div class="p-3" data-test-id="receiver-info">
+                <p data-test-id="receiver-ein">
+                  <span class="font-weight-bold">EIN</span>
+                  <br>{{@receiver.attributes.ein}}
+                </p>
+                <p data-test-id="receiver-name">
+                  <span class="font-weight-bold">Name</span>
+                  <br>{{@receiver.attributes.name}}
+                </p>
+                <p data-test-id="receiver-address">
+                  <span class="font-weight-bold">Address</span>
+                  <br>{{@receiver.attributes.address}}
+                </p>
+                <p data-test-id="receiver-city">
+                  <span class="font-weight-bold">City</span>
+                  <br>{{@receiver.attributes.city}}
+                </p>
+                <p data-test-id="receiver-state">
+                  <span class="font-weight-bold">State</span>
+                  <br>{{@receiver.attributes.state}}
+                </p>
+                <p data-test-id="receiver-postal-code">
+                  <span class="font-weight-bold">Postal Code</span>
+                  <br>{{@receiver.attributes.postal_code}}
+                </p>
+              </div>
+            </tab.pane>
+            <tab.pane @title="Awards">
+              <ul class="p-3">
+                {{#each @receiver.included as |award|}}
+                  <li>
+                    <span class="font-weight-bold">Award:</span>
+                    <br>Amount: {{award.attributes.grant_cash_amount}}
+                    <br>Purpose: {{award.attributes.grant_purpose}}
+                  </li>
+                {{else}}
+                  <li>No awards available.</li>
+                {{/each}}
+              </ul>
+            </tab.pane>
+          </BsTab>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

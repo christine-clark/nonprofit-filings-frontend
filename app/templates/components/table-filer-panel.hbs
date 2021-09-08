@@ -1,0 +1,49 @@
+<div class="quick-edit-panel h-100" data-test-id="quick-edit-panel">
+  <div class="row m-0 h-100">
+    <div class="col-6 p-0 overlay"></div>
+    <div class="col-6 p-0 d-flex flex-column h-100">
+      <div class="header py-2 pl-3 pr-2 d-flex align-items-center">
+        <h4 class="flex-grow-1 m-0">Filer Details</h4>
+        <span>
+          <BsButton
+            @type="link"
+            @onClick={{action this.args.closePanel}}
+            class="no-outline p-2"
+            data-test-id="close-panel-button"
+          >
+            X
+          </BsButton>
+        </span>
+      </div>
+
+      <div class="content h-100">
+        <div class="p-3 content-wrapper h-100">
+          <p data-test-id="filer-ein">
+            <span class="font-weight-bold">EIN</span>
+            <br>{{@filer.attributes.ein}}
+          </p>
+          <p data-test-id="filer-name">
+            <span class="font-weight-bold">Name</span>
+            <br>{{@filer.attributes.name}}
+          </p>
+          <p data-test-id="filer-address">
+            <span class="font-weight-bold">Address</span>
+            <br>{{@filer.attributes.address}}
+          </p>
+          <p data-test-id="filer-city">
+            <span class="font-weight-bold">City</span>
+            <br>{{@filer.attributes.city}}
+          </p>
+          <p data-test-id="filer-state">
+            <span class="font-weight-bold">State</span>
+            <br>{{@filer.attributes.state}}
+          </p>
+          <p data-test-id="filer-postal-code">
+            <span class="font-weight-bold">Postal Code</span>
+            <br>{{@filer.attributes.postal_code}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

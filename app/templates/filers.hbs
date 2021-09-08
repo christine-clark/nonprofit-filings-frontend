@@ -1,0 +1,14 @@
+<div class="app-content" data-test-id="main-content">
+  <h1>Filers</h1>
+
+  <TableFilers
+    @filers={{model.filers}}
+    @meta={{model.meta}}
+    @usStates={{this.usStates}}
+    @selectState={{this.selectState}}
+    @selectedState={{this.state}}
+    @selectFiler={{this.selectFiler}}
+    @selectedFiler={{this.selectedFiler}}
+    @closePanel={{this.closePanel}}
+  />
+</div>

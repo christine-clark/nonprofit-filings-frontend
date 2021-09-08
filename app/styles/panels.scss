@@ -1,0 +1,33 @@
+/*-------------------------------------------*\
+    quick edit panel (right panel)
+\*-------------------------------------------*/
+.quick-edit-panel {
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 63px;
+  width: 100%;
+  z-index: 1000;
+  border: 1px solid #ccc;
+
+  .overlay {
+    background-color: rgba(0,0,0,.4);
+  }
+
+  .header {
+    color: #333;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .content {
+    background-color: white;
+    overflow-y: scroll;
+    margin-bottom: 63px;
+  }
+
+  .content-wrapper {
+    background-color: white;
+    z-index: 1000;
+  }
+} 

@@ -1,0 +1,35 @@
+.app-content {
+  width: 60rem;
+  margin: 1rem auto;
+}
+
+.app-footer {
+  width: 60rem;
+  margin: 1rem auto;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+select {
+  outline: none;
+}
+
+.has-filters-applied {
+  border: 2px solid blue;
+}

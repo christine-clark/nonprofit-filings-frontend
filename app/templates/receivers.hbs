@@ -1,0 +1,14 @@
+<div class="app-content" data-test-id="main-content">
+  <h1>Receivers</h1>
+
+  <TableReceivers
+    @receivers={{model.receivers}}
+    @meta={{model.meta}}
+    @usStates={{this.usStates}}
+    @selectState={{this.selectState}}
+    @selectedState={{this.state}}
+    @selectReceiver={{this.selectReceiver}}
+    @selectedReceiver={{this.selectedReceiver}}
+    @closePanel={{this.closePanel}}
+  />
+</div>
