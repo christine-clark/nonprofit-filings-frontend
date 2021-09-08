@@ -1,18 +1,18 @@
 <div class="d-flex justify-content-between align-items-center">
   <select
     name="state"
-    class={{if this.args.selectedState "has-filters-applied" "no-filters-applied"}}
-    {{on "change" (fn this.args.selectState)}}
+    class={{if @selectedState "has-filters-applied" "no-filters-applied"}}
+    {{on "change" @selectState}}
   >
-    {{#each this.args.usStates as |state|}}        
+    {{#each @usStates as |state|}}        
       <option value={{state.abbreviation}}>{{state.name}}</option>      
     {{/each}} 
   </select>
 
-  <p>Total Count: {{this.args.meta.totalCount}}</p>
+  <p>Total Count: {{@meta.totalCount}}</p>
 </div>
 
-{{#if this.args.receivers.length}}
+{{#if @receivers.length}}
   <table class="standard-table">
     <thead>
       <tr>
@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.args.receivers as |receiver|}}
+      {{#each @receivers as |receiver|}}
         <tr>
           <td data-test-id="filter-ein">{{receiver.attributes.ein}}</td>
           <td data-test-id="filter-name">{{receiver.attributes.name}}</td>
@@ -38,8 +38,8 @@
           <td data-test-id="filter-awards-count">{{receiver.included.length}}</td>
           <td data-test-id="filter-actions">
             <BsButton
-              @onClick={{action this.args.selectReceiver receiver}}
               data-test-id="view-receiver"
+              {{on "click" (fn @selectReceiver receiver)}}
             >
               View
             </BsButton>
@@ -52,9 +52,9 @@
   No receivers available.
 {{/if}}
 
-{{#if this.args.selectedReceiver}}
+{{#if @selectedReceiver}}
   <TableReceiverPanel
-    @receiver={{this.args.selectedReceiver}}
-    @closePanel={{this.args.closePanel}}
+    @receiver={{@selectedReceiver}}
+    @closePanel={{@closePanel}}
   />
 {{/if}}

@@ -2,7 +2,7 @@ import { attr } from '@ember-data/model';
 import { computed } from '@ember/object';
 import DS from 'ember-data';
 
-export default class Filer extends DS.Model.extend({}) {
+export default class Filer extends DS.Model {
   @attr('number') public ein!: string;
   @attr('string') public name!: string;
   @attr('string') public address!: string;

@@ -1,19 +1,19 @@
 <div class="d-flex justify-content-between align-items-center">
   <select
     name="state"
-    class={{if this.args.selectedState "has-filters-applied" "no-filters-applied"}}
+    class={{if @selectedState "has-filters-applied" "no-filters-applied"}}
     data-test-id="select-state-dropdown"
-    {{on "change" (fn this.args.selectState)}}
+    {{on "change" @selectState}}
   >
-    {{#each this.args.usStates as |state|}}        
+    {{#each @usStates as |state|}}        
       <option value={{state.abbreviation}}>{{state.name}}</option>      
     {{/each}} 
   </select>
 
-  <p>Total Count: {{this.args.meta.totalCount}}</p>
+  <p>Total Count: {{@meta.totalCount}}</p>
 </div>
 
-{{#if this.args.filers.length}}
+{{#if @filers.length}}
   <table class="standard-table">
     <thead>
       <tr>
@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.args.filers as |filer|}}
+      {{#each @filers as |filer|}}
         <tr>
           <td data-test-id="filter-ein">{{filer.attributes.ein}}</td>
           <td data-test-id="filter-name">{{filer.attributes.name}}</td>
@@ -37,8 +37,8 @@
           <td data-test-id="filter-postal-code">{{filer.attributes.postal_code}}</td>
           <td data-test-id="filter-actions">
             <BsButton
-              @onClick={{action this.args.selectFiler filer}}
               data-test-id="view-filer"
+              {{on "click" (fn @selectFiler filer)}}
             >
               View
             </BsButton>
@@ -51,9 +51,9 @@
   No filers available.
 {{/if}}
 
-{{#if this.args.selectedFiler}}
+{{#if @selectedFiler}}
   <TableFilerPanel
-    @filer={{this.args.selectedFiler}}
-    @closePanel={{this.args.closePanel}}
+    @filer={{@selectedFiler}}
+    @closePanel={{@closePanel}}
   />
 {{/if}}

@@ -7,9 +7,9 @@
         <span>
           <BsButton
             @type="link"
-            @onClick={{action this.args.closePanel}}
             class="no-outline p-2"
             data-test-id="close-panel-button"
+            {{on "click" @closePanel}}
           >
             X
           </BsButton>

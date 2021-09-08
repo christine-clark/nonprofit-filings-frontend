@@ -2,7 +2,7 @@ import { attr, belongsTo } from '@ember-data/model';
 import DS from 'ember-data';
 import Receiver from './receiver';
 
-export default class Award extends DS.Model.extend({}) {
+export default class Award extends DS.Model {
   @attr('number') public grantCashAmount!: number;
   @attr('string') public grantPurpose!: string;
   @belongsTo('receiver') public receiver!: Receiver;
