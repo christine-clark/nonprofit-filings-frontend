@@ -10,17 +10,26 @@ ul.app-navigation {
   li {
     display: inline-block;
     margin: 0 0.5rem 0 0;
-    padding: 1rem;
-    background-color: #e1e1e1;
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
 
     &:hover {
       background-color: #CCC;
     }
 
-    a:hover {
-      text-decoration: none;
+    a {
+      display: block;
+      padding: 1rem;
+      color: #05445E;
+      background-color: #e1e1e1;
+      border-bottom-left-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &.active {
+        background-color: #D4F1F4;
+      }
     }
   }
 }

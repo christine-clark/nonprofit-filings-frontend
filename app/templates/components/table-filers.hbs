@@ -10,11 +10,11 @@
     {{/each}} 
   </select>
 
-  <p>Total Count: {{@meta.totalCount}}</p>
+  <p class="m-0">Total Count: {{@meta.totalCount}}</p>
 </div>
 
 {{#if @filers.length}}
-  <table class="standard-table">
+  <table class="standard-table mt-3" data-test-id="filers-table">
     <thead>
       <tr>
         <th>EIN</th>
@@ -22,20 +22,20 @@
         <th>Address</th>
         <th>City</th>
         <th>State</th>
-        <th>Postal Code</th>
-        <th>Actions</th>
+        <th class="text-center">Postal Code</th>
+        <th class="text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
       {{#each @filers as |filer|}}
         <tr>
-          <td data-test-id="filter-ein">{{filer.attributes.ein}}</td>
-          <td data-test-id="filter-name">{{filer.attributes.name}}</td>
-          <td data-test-id="filter-address">{{filer.attributes.address}}</td>
-          <td data-test-id="filter-city">{{filer.attributes.city}}</td>
-          <td data-test-id="filter-state">{{filer.attributes.state}}</td>
-          <td data-test-id="filter-postal-code">{{filer.attributes.postal_code}}</td>
-          <td data-test-id="filter-actions">
+          <td data-test-id="filer-ein">{{filer.attributes.ein}}</td>
+          <td data-test-id="filer-name">{{filer.attributes.name}}</td>
+          <td data-test-id="filer-address">{{filer.attributes.address}}</td>
+          <td data-test-id="filer-city">{{filer.attributes.city}}</td>
+          <td data-test-id="filer-state">{{filer.attributes.state}}</td>
+          <td class="text-center" data-test-id="filer-postal-code">{{filer.attributes.postal_code}}</td>
+          <td class="text-center" data-test-id="filer-actions">
             <BsButton
               data-test-id="view-filer"
               {{on "click" (fn @selectFiler filer)}}

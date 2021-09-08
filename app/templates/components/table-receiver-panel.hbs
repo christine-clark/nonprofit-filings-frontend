@@ -18,7 +18,7 @@
 
       <div class="content h-100">
         <div class="content-wrapper h-100">
-          <BsTab class="mt-3" as |tab|>
+          <BsTab class="pt-3" as |tab|>
             <tab.pane @title="Info">
               <div class="p-3" data-test-id="receiver-info">
                 <p data-test-id="receiver-ein">
@@ -50,7 +50,7 @@
             <tab.pane @title="Awards">
               <ul class="p-3">
                 {{#each @receiver.included as |award|}}
-                  <li>
+                  <li data-test-id="award-info">
                     <span class="font-weight-bold">Award:</span>
                     <br>Amount: {{award.attributes.grant_cash_amount}}
                     <br>Purpose: {{award.attributes.grant_purpose}}

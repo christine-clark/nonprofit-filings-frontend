@@ -2,6 +2,7 @@
   <select
     name="state"
     class={{if @selectedState "has-filters-applied" "no-filters-applied"}}
+    data-test-id="select-state-dropdown"
     {{on "change" @selectState}}
   >
     {{#each @usStates as |state|}}        
@@ -9,11 +10,11 @@
     {{/each}} 
   </select>
 
-  <p>Total Count: {{@meta.totalCount}}</p>
+  <p class="m-0">Total Count: {{@meta.totalCount}}</p>
 </div>
 
 {{#if @receivers.length}}
-  <table class="standard-table">
+  <table class="standard-table mt-3" data-test-id="receivers-table">
     <thead>
       <tr>
         <th>EIN</th>
@@ -21,22 +22,22 @@
         <th>Address</th>
         <th>City</th>
         <th>State</th>
-        <th>Postal Code</th>
-        <th>Awards Count</th>
+        <th class="text-center">Postal Code</th>
+        <th class="text-center">Awards Count</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       {{#each @receivers as |receiver|}}
         <tr>
-          <td data-test-id="filter-ein">{{receiver.attributes.ein}}</td>
-          <td data-test-id="filter-name">{{receiver.attributes.name}}</td>
-          <td data-test-id="filter-address">{{receiver.attributes.address}}</td>
-          <td data-test-id="filter-city">{{receiver.attributes.city}}</td>
-          <td data-test-id="filter-state">{{receiver.attributes.state}}</td>
-          <td data-test-id="filter-postal-code">{{receiver.attributes.postal_code}}</td>
-          <td data-test-id="filter-awards-count">{{receiver.included.length}}</td>
-          <td data-test-id="filter-actions">
+          <td data-test-id="receiver-ein">{{receiver.attributes.ein}}</td>
+          <td data-test-id="receiver-name">{{receiver.attributes.name}}</td>
+          <td data-test-id="receiver-address">{{receiver.attributes.address}}</td>
+          <td data-test-id="receiver-city">{{receiver.attributes.city}}</td>
+          <td data-test-id="receiver-state">{{receiver.attributes.state}}</td>
+          <td class="text-center" data-test-id="receiver-postal-code">{{receiver.attributes.postal_code}}</td>
+          <td class="text-center" data-test-id="receiver-awards-count">{{receiver.included.length}}</td>
+          <td data-test-id="receiver-actions">
             <BsButton
               data-test-id="view-receiver"
               {{on "click" (fn @selectReceiver receiver)}}
